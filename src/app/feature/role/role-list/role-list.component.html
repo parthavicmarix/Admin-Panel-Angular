@@ -1,0 +1,77 @@
+<div class="list">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+      <!-- Left: Title -->
+      <h1 class="mb-0">Role List</h1>
+
+      <!-- Right: Search + Button -->
+      <div class="d-flex justify-content-end align-items-center gap-3">
+        <!-- Search Bar -->
+        <mat-form-field appearance="outline">
+          <input matInput type="search" placeholder="Enter Your Search" [(ngModel)]="search"
+            (input)="onSearch($event)" />
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <!-- Add User Button -->
+        <button class="btn-blue create-btn search-left" routerLink="/role-create">
+          <i class="fas fa-solid fa-plus plus"></i>
+          Add Role
+        </button>
+      </div>
+    </div>
+    <div class="item-list">
+      <table class="table table-hover m-0 b-1 nowrap">
+        <thead class="thead-light">
+          <tr>
+            <th>Sr No.</th>
+            <th class="line-break">
+              Name</th>
+            <th>
+              Description
+            </th>
+            <th>
+              Status
+            </th>
+            <th>
+              Created at
+            </th>
+            <th>
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              aa
+            </td>
+            <td>
+              aa
+            </td>
+            <td>
+              aa
+            </td>
+            <td>
+              aa
+            </td>
+            <td>
+              aa
+            </td>
+            <td>
+              <a class="icon-color" mat-icon-button [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon></a>
+              <mat-menu #menu="matMenu">
+                <a class="ml-1" mat-menu-item routerLink="/role-create"> <mat-icon>edit</mat-icon>Update</a>
+                <a class="ml-1" mat-menu-item> <mat-icon>delete</mat-icon>Delete</a>
+              </mat-menu>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="data-not-found">
+        list is not available.
+      </div>
+    </div>
+  </div>

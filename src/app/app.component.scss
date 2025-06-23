@@ -1,0 +1,15 @@
+
+/* Full height layout with two scrollable panels */
+.main-layout {
+  display: flex;
+  height: calc(100vh - 60px); // Assuming header is 60px
+  overflow: hidden;
+}
+
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  height: 100%;
+  padding: 16px;
+  background-color: #efefef;
+}

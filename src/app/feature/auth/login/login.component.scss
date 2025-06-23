@@ -1,0 +1,46 @@
+.login-form {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0;
+    margin-bottom: 0;
+    background-color: #badcff;
+
+    h1 {
+        color: #dd5526;
+        font-size: 37px;
+        font-weight: 300;
+        margin-bottom: 40px;
+    }
+
+    .action-btn {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .text-end {
+        margin-right: -38px !important;
+    }
+
+    .forgot-remember-wrap {
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+    }
+
+    .forgot-remember-wrap a {
+        text-decoration: none;
+        color: #2c3e50;
+    }
+
+    .forgot-remember-wrap a:hover {
+        text-decoration: underline;
+    }
+
+    .form-top {
+        margin-top: 180px !important;
+    }
+}

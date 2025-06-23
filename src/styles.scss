@@ -1,0 +1,482 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "@ng-select/ng-select/themes/default.theme.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+$border-color: #2c3e50 !important;
+body.dark-theme {
+  background-color: #121212;
+  color: #eee;
+
+  .app-header {
+    background-color: #181818;
+    color: #eee;
+  }
+
+  .app-sidebar {
+    background-color: #1e1e1e;
+    color: #ccc;
+  }
+
+  .app-content {
+    background-color: #1a1a1a;
+    color: #ddd;
+  }
+
+  a {
+    color: #ccc !important;
+  }
+
+  button {
+    color: #eee;
+  }
+
+  mat-list-item {
+    background-color: transparent !important;
+  }
+}
+
+/* Dark Theme */
+body.dark-theme {
+  background-color: #121212;
+  color: #eee;
+
+  .app-header {
+    background-color: #181818;
+  }
+
+  .app-sidebar {
+    background-color: #1e1e1e;
+  }
+
+  .app-content {
+    background-color: #1a1a1a;
+    color: #ddd;
+  }
+
+  a {
+    color: #ccc;
+  }
+}
+
+
+.btn-blue {
+  color: #ffffff !important;
+  border: 1px solid #dd5526;
+  background-color: #dd5526 !important;
+  padding: 8px 12px;
+  width: 80px;
+  min-width: fit-content;
+  border-radius: 10px;
+  height: 42px;
+}
+
+// 1. Rounded corners on outline
+.mat-form-field-appearance-outline .mat-form-field-outline-start,
+.mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-radius: 10px;
+}
+
+// 2. On focus - change stroke to orange
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  stroke: orange !important;
+}
+
+// 3. Optional: Change label and caret color on focus
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: orange !important;
+}
+.mat-form-field.mat-focused .mat-input-element {
+  caret-color: orange !important;
+}
+
+
+// for list
+.list {
+  h1 {
+    font-size: 36px;
+    font-weight: 300;
+    color: #fb8500;
+  }
+
+  .item-list {
+    table {
+      background: #ffffff 0% 0% no-repeat padding-box;
+      border-radius: 5px 5px 0px 0px;
+      overflow: hidden;
+      th {
+        padding: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        border-top: none !important;
+        border-bottom-color: #7070704d;
+        color: #023047;
+        background-color: #f9f9f9;
+      }
+
+      td {
+        padding: 20px;
+        font-size: 16px;
+        font-weight: 400;
+        vertical-align: middle;
+        color: #023047;
+        cursor: default;
+      }
+    }
+  }
+
+  // break the line when text is too long
+  .line-break {
+    word-break: break-all;
+  }
+}
+
+.create-btn {
+  display: flex;
+  margin-left: auto;
+  margin-right: 16px;
+}
+
+
+.data-not-found{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  color: #2c3e50;
+  font-weight: 400;
+}
+
+
+// ng select
+.ng-select {
+  width: 83% !important;
+}
+
+.ng-select .ng-select-container {
+  border-radius: 14px !important;
+  border: 1px solid #2c3e50 !important;
+  color: rgb(0 0 0 / 87%) !important;
+  background-color: transparent !important;
+  min-height: 42px !important;
+}
+
+.ng-select.ng-select-single .ng-select-container {
+  height: auto !important;
+}
+
+/* Border Color */
+.ng-select.ng-invalid.ng-touched .ng-select-container {
+  border-color: red !important;
+}
+
+.ng-select {
+  .ng-dropdown-panel {
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+      0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%) !important;
+    background: #f7fdff !important;
+    border: none !important;
+
+    .ng-dropdown-panel-items .ng-option {
+      background: #f7fdff !important;
+      white-space: normal !important;
+
+      .wspace-normal {
+        white-space: normal;
+      }
+
+      &.ng-option-selected {
+        background-color: #b1effd !important;
+      }
+
+      &:hover {
+        background-color: #d8f8ff !important;
+      }
+    }
+
+    .ng-dropdown-panel-items .ng-option.ng-option-selected .ng-option-label,
+    .ng-dropdown-panel-items
+      .ng-option.ng-option-selected.ng-option-marked
+      .ng-option-label {
+      font-weight: 400 !important;
+    }
+  }
+
+  &.ng-select-single,
+  &.ng-select-multiple {
+    .ng-select-container .ng-value-container {
+      .ng-placeholder {
+        top: 7px !important;
+      }
+
+      .ng-value {
+        white-space: normal !important;
+        display: flex;
+      }
+    }
+
+    .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+      padding: 8px 6px 8px 15px !important;
+      background-color: #f7fdff !important;
+      white-space: normal !important;
+
+      input {
+        height: 16px !important;
+        width: 16px !important;
+        min-width: 16px !important;
+        margin-right: 15px !important;
+        margin-top: 5px !important;
+      }
+
+      &.ng-option-selected {
+        background-color: #b1effd !important;
+      }
+
+      &:hover {
+        background-color: #d8f8ff !important;
+      }
+
+      .wspace-normal {
+        white-space: normal;
+      }
+    }
+  }
+}
+
+// Append to Body Ng Select Css   -- 1565
+.ng-dropdown-panel {
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+    0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%) !important;
+  background: #f7fdff !important;
+  border: none !important;
+
+  .ng-dropdown-panel-items .ng-option {
+    background: #f7fdff !important;
+    color: rgba(0, 0, 0, 0.87) !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    white-space: normal !important;
+
+    &.ng-option-selected {
+      background-color: #b1effd !important;
+    }
+
+    &:hover {
+      background-color: #d8f8ff !important;
+    }
+
+    .wspace-normal {
+      white-space: normal;
+    }
+  }
+
+  .ng-dropdown-panel-items .ng-option.ng-option-selected .ng-option-label,
+  .ng-dropdown-panel-items
+    .ng-option.ng-option-selected.ng-option-marked
+    .ng-option-label {
+    font-weight: 400 !important;
+  }
+}
+
+.ng-select-single,
+.ng-select-multiple {
+  .ng-select-container .ng-value-container {
+    .ng-placeholder {
+      top: 7px !important;
+    }
+
+    .ng-value {
+      white-space: normal !important;
+      display: flex;
+    }
+  }
+
+  &.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    padding: 8px 6px 8px 15px !important;
+    background-color: #f7fdff !important;
+    color: rgba(0, 0, 0, 0.87) !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    white-space: normal !important;
+
+    input {
+      height: 16px !important;
+      width: 16px !important;
+      min-width: 16px !important;
+      margin-right: 15px !important;
+      margin-top: 5px !important;
+    }
+
+    &.ng-option-selected {
+      background-color: #b1effd !important;
+    }
+
+    &:hover {
+      background-color: #d8f8ff !important;
+    }
+
+    .wspace-normal {
+      white-space: normal;
+    }
+  }
+}
+
+/* mat-form-field */
+mat-form-field .mat-mdc-text-field-wrapper {
+  width: 300px !important;
+  height: 42px !important;
+}
+
+.mdc-text-field--no-label:not(.mdc-text-field--textarea)
+  .mat-mdc-form-field-input-control.mdc-text-field__input,
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+  height: auto;
+  font-size: 14px;
+  margin-left: -10px;
+}
+
+.mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 14px !important;
+}
+
+
+// default border color for mat input field
+.mdc-notched-outline__leading {
+  border-color: #2c3e50  !important;
+}
+
+.mdc-notched-outline__notch {
+  border-color: #2c3e50  !important;
+}
+
+.mdc-notched-outline__trailing {
+  border-color: #2c3e50  !important;
+}
+
+// invalid border color for mat input field
+.mat-form-field-invalid .mdc-notched-outline__leading {
+  border-color: #f44336 !important;
+}
+.mat-form-field-invalid .mdc-notched-outline__notch {
+  border-color: #f44336 !important;
+}
+.mat-form-field-invalid .mdc-notched-outline__trailing {
+  border-color: #f44336 !important;
+}
+
+// valid border color for mat input field
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-notched-outline
+  .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-notched-outline
+  .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-notched-outline
+  .mdc-notched-outline__trailing {
+  border-width: 1px !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+  height: 40px !important;
+}
+
+::ng-deep .mat-form-field-wrapper {
+  margin-bottom: -1.25em;
+}
+
+:host ::ng-deep .mat-form-field-wrapper {
+  margin: 0 !important;
+  padding: 0;
+}
+
+mat-form-field .mdc-text-field--outlined .mat-mdc-form-field-infix,
+.mdc-text-field--no-label .mat-mdc-form-field-infix {
+  padding-top: 9px !important;
+  margin-left: 5px !important;
+  color: red;
+}
+
+.mat-form-field
+  .mat-mdc-text-field-wrapper
+  .mat-mdc-form-field-flex
+  .mat-mdc-form-field-icon-suffix {
+  margin-bottom: 12px;
+}
+
+.mat-mdc-form-field-icon-suffix>.mat-icon {
+    padding: 0px 11px;
+    box-sizing: content-box;
+    margin-top: -10px;
+}
+
+::ng-deep .mat-form-field-appearance-outline input::placeholder,
+::ng-deep .mat-form-field-appearance-fill input::placeholder {
+  color: orange;
+}
+.coursor-pointer{
+  cursor: pointer;
+}
+
+
+.custom-placeholder .mat-input-element::placeholder {
+  color: red !important;
+  opacity: 1;
+}
+
+
+// create page
+.create-page {
+    h1 {
+        font-size: 36px;
+        font-weight: 300;
+        color: #FB8500;
+    }
+
+    .infobox {
+        padding: 30px 160px;
+        background-color: #F8FDFF;
+        margin-right: 20px;
+        border-radius: 16px;
+    }
+
+    .m-l {
+        margin-left: auto;
+    }
+
+    .danger {
+        margin-left: 16px;
+    }
+
+    .form-footer {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: end;
+    margin-top: 30px;
+    margin-right: 60px;
+}
+
+// for list page
+.plus{
+  margin-top: 5px !important;
+  margin-right: 5px !important;
+}
+.search-left{
+  margin-left: 26px !important;
+  margin-right: 0px;
+  margin-bottom: 20px !important;
+}
+.icon-color{
+  color: black;
+}

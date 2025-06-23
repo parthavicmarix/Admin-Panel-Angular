@@ -1,0 +1,26 @@
+<header class="app-header">
+  <div class="header-content">
+    <img src="assets/images/logo.svg" alt="Logo" class="logo" />
+    <span class="spacer"></span>
+    <div class="right-actions">
+      <button class="theme-toggle-btn" (click)="toggleDarkMode()" title="Toggle Theme">
+        <i class="fa-solid" [ngClass]="darkMode ? 'fa-sun' : 'fa-moon'"></i>
+      </button>
+       <!-- User icon with mat-menu -->
+      <button mat-icon-button [matMenuTriggerFor]="userMenu" class="user-menu-button">
+      <i class="fas fa-user-circle user-icon" title="User"></i>
+      </button>
+
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          <span>My Account</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</header>

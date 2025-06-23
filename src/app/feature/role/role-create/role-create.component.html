@@ -1,0 +1,137 @@
+<div class="create-page">
+    <h1 class="mb-3">
+        <i class="fa-solid fa-arrow-left coursor-pointer" routerLink="/role-list"></i>
+        Create User
+    </h1>
+    <div class="infobox">
+        <div class="test">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-field input-fields">
+                        <label>Name <span class="text-danger">*</span></label><br />
+                        <mat-form-field class="custom-placeholder" appearance="outline" class="cutm-w">
+                            <input matInput type="text" placeholder="Enter User Name" />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-field input-fields">
+                        <label>Description <span class="text-danger">*</span></label><br />
+                        <mat-form-field appearance="outline" class="cutm-w">
+                            <input matInput type="text" placeholder="Enter Email" />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-field input-fields">
+                        <label>Select Status<span class="text-danger">*</span></label><br />
+                        <ng-select [items]="" bindLabel="name" bindValue="id" placeholder="Select Status"
+                            appendTo="body">
+                        </ng-select>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-list mt-3">
+            <table class="table table-hover m-0 b-1 nowrap">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Select All
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                            </div>
+                        </th>
+                        <th class="line-break">
+                            Name
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                            </div>
+                        </th>
+                        <th>
+                            View<div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                            </div>
+                        </th>
+                        <th>
+                            Add<div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                            </div>
+                        </th>
+                        <th>
+                            Edit<div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                            </div>
+                        </th>
+                        <th>
+                            Delete<div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            Dashbaord
+                        </td>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer buttons -->
+        <div class="button-wrapper">
+            <button type="button" class="btn-blue" (click)="onSave()">Save</button>
+        </div>
+
+    </div>
+</div>

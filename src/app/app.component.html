@@ -1,0 +1,22 @@
+@if(isLoggedIn){
+<app-header ></app-header>
+
+<!-- Layout with sidebar + content -->
+<div class="main-layout">
+  <!-- Sidebar -->
+  <app-sidebar class="sidebar" [collapsed]="collapsed" (toggle)="toggleSidebar()"></app-sidebar>
+
+  <!-- Main content area -->
+  <main class="app-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+}
+
+
+<!-- If not logged in, show only router outlet (like for login page) -->
+@if(!isLoggedIn){
+  <router-outlet></router-outlet>
+}
+
+
