@@ -1,0 +1,53 @@
+<div class="create-page">
+  <h1 class="mb-3">
+    <i class="fa-solid fa-arrow-left coursor-pointer" routerLink="/employee/list"></i>
+    Add Employee
+  </h1>
+  <div class="infobox">
+    <form (ngSubmit)="save()">
+      <div class="test">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Name <span class="text-danger">*</span></label><br />
+              <mat-form-field class="custom-placeholder" appearance="outline" class="cutm-w">
+                <input matInput type="text" placeholder="Enter Name" [(ngModel)]="employee.name" name="name" required />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Email <span class="text-danger">*</span></label><br />
+              <mat-form-field appearance="outline" class="cutm-w">
+                <input matInput type="email" placeholder="Enter Email" [(ngModel)]="employee.email" name="email" required />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Position <span class="text-danger">*</span></label><br />
+              <mat-form-field appearance="outline" class="cutm-w">
+                <input matInput type="text" placeholder="Enter Position" [(ngModel)]="employee.position" name="position" required />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Department <span class="text-danger">*</span></label><br />
+              <ng-select [items]="departments" bindLabel="name" bindValue="name" placeholder="Select Department" [(ngModel)]="employee.department" name="department" required appendTo="body"></ng-select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Project <span class="text-danger">*</span></label><br />
+              <ng-select [items]="projects" bindLabel="name" bindValue="name" placeholder="Select Project" [(ngModel)]="employee.project" name="project" required appendTo="body"></ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-wrapper">
+        <button type="submit" class="btn-blue">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

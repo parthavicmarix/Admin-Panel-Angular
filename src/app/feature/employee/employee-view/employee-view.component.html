@@ -1,0 +1,57 @@
+<div class="create-page">
+  <h1 class="mb-3">
+    <i class="fa-solid fa-arrow-left coursor-pointer" routerLink="/employee/list"></i>
+    Employee Details
+  </h1>
+  <div class="infobox">
+    <form *ngIf="employee">
+      <div class="test">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Name</label><br />
+              <mat-form-field class="custom-placeholder" appearance="outline" class="cutm-w">
+                <input matInput type="text" [value]="employee!.name" name="name" readonly />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Email</label><br />
+              <mat-form-field appearance="outline" class="cutm-w">
+                <input matInput type="email" [value]="employee!.email" name="email" readonly />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Position</label><br />
+              <mat-form-field appearance="outline" class="cutm-w">
+                <input matInput type="text" [value]="employee!.position" name="position" readonly />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Department</label><br />
+              <mat-form-field appearance="outline" class="cutm-w">
+                <input matInput type="text" [value]="employee!.department" name="department" readonly />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Project</label><br />
+              <mat-form-field appearance="outline" class="cutm-w">
+                <input matInput type="text" [value]="employee!.project" name="project" readonly />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-wrapper">
+        <button type="button" class="btn-blue" (click)="backToList()">Back to List</button>
+      </div>
+    </form>
+  </div>
+</div>

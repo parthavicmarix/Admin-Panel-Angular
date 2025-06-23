@@ -22,6 +22,14 @@
   <span *ngIf="!collapsed">User</span>
 </a>
 
+<a mat-list-item 
+   routerLink="/employee/list" 
+   routerLinkActive="active" 
+   [routerLinkActiveOptions]="{ exact: true }">
+  <i class="fas fa-users"></i>
+  <span *ngIf="!collapsed">Employee</span>
+</a>
+
 <!-- repeat similarly for other routes -->
 
     <a mat-list-item routerLink="/role-list">

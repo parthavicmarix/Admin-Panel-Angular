@@ -1,0 +1,61 @@
+<div class="list">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+      <!-- Left: Title -->
+      <h1 class="mb-0">Employee List</h1>
+
+      <!-- Right: Search + Button -->
+      <div class="d-flex justify-content-end align-items-center gap-3">
+        <!-- Search Bar -->
+        <mat-form-field appearance="outline">
+          <input matInput type="search" placeholder="Enter Your Search" [(ngModel)]="search" (input)="onSearch($event)" />
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <!-- Add Employee Button -->
+        <button mat-raised-button color="primary" class="btn-blue create-btn search-left" [routerLink]="'/employee/create'" style="z-index:10; position:relative;">
+          <i class="fas fa-solid fa-plus plus"></i>
+          Add Employee
+        </button>
+      </div>
+    </div>
+    <div class="item-list">
+      <table class="table table-hover m-0 b-1 nowrap">
+        <thead class="thead-light">
+          <tr>
+            <th>Sr No.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Project</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of filteredEmployees; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.position }}</td>
+            <td>{{ emp.department }}</td>
+            <td>{{ emp.project }}</td>
+            <td>
+              <a class="icon-color" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Actions" (click)="setSelectedEmployee(emp)">
+                <mat-icon>more_vert</mat-icon>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-menu #menu="matMenu">
+        <a class="ml-1" mat-menu-item (click)="editSelectedEmployee()"> <mat-icon>edit</mat-icon>Edit</a>
+        <a class="ml-1" mat-menu-item (click)="viewSelectedEmployee()"> <mat-icon>visibility</mat-icon>View</a>
+        <a class="ml-1" mat-menu-item (click)="deleteSelectedEmployee()"> <mat-icon>delete</mat-icon>Delete</a>
+      </mat-menu>
+      <div class="data-not-found" *ngIf="employees.length === 0">
+        List is not available.
+      </div>
+    </div>
+  </div>
+</div>

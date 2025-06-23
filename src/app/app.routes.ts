@@ -24,5 +24,21 @@ export const routes: Routes = [
             path: 'role-create',
             loadComponent: () => import('./feature/role/role-create/role-create.component').then(m => m.RoleCreateComponent)
       },
+      {
+            path: 'employee/list',
+            loadComponent: () => import('./feature/employee/employee-list/employee-list.component').then(m => m.EmployeeListComponent)
+      },
+      {
+            path: 'employee/create',
+            loadComponent: () => import('./feature/employee/employee-create/employee-create.component').then(m => m.EmployeeCreateComponent)
+      },
+      {
+            path: 'employee/edit/:id',
+            loadComponent: () => import('./feature/employee/employee-edit/employee-edit.component').then(m => m.EmployeeEditComponent)
+      },
+      {
+            path: 'employee/view/:id',
+            loadComponent: () => import('./feature/employee/employee-view/employee-view.component').then(m => m.EmployeeViewComponent)
+      },
 
 ];
