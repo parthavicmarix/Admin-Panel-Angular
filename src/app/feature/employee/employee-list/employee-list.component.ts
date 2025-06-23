@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
+import { TaskService, Task } from '../../task/services/task.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -19,11 +20,13 @@ export class EmployeeListComponent implements OnInit {
   search: string = '';
   filteredEmployees: Employee[] = [];
   selectedEmployee: Employee | null = null;
+  tasks: Task[] = [];
 
-  constructor(private employeeService: EmployeeService, private router: Router) {}
+  constructor(private employeeService: EmployeeService, private router: Router, private taskService: TaskService) {}
 
   ngOnInit() {
     this.loadEmployees();
+    this.loadTasks();
   }
 
   loadEmployees() {
@@ -31,6 +34,10 @@ export class EmployeeListComponent implements OnInit {
       this.employees = data;
       this.filteredEmployees = data;
     });
+  }
+
+  loadTasks() {
+    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
   }
 
   onSearch(event: any) {
@@ -72,5 +79,9 @@ export class EmployeeListComponent implements OnInit {
     if (this.selectedEmployee) {
       this.deleteEmployee(this.selectedEmployee.id);
     }
+  }
+
+  getTasksForEmployee(empId: number): Task[] {
+    return this.tasks.filter(t => t.assignedEmployeeId === empId);
   }
 }

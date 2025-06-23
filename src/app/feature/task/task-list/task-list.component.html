@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Task List</h2>
+    <a routerLink="/tasks/create" class="btn btn-primary">Add Task</a>
+  </div>
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Department</th>
+        <th>Project</th>
+        <th>Assigned Employee</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.department }}</td>
+        <td>{{ task.project }}</td>
+        <td>{{ getEmployeeName(task.assignedEmployeeId) }}</td>
+        <td>
+          <a [routerLink]="['/tasks/view', task.id]" class="btn btn-sm btn-info mr-1">View</a>
+          <a [routerLink]="['/tasks/edit', task.id]" class="btn btn-sm btn-warning mr-1">Edit</a>
+          <button (click)="deleteTask(task.id)" class="btn btn-sm btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
