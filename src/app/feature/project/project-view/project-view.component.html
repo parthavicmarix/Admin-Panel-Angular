@@ -1,0 +1,33 @@
+<div class="create-page">
+  <h1 class="mb-3">
+    <i class="fa-solid fa-arrow-left coursor-pointer" (click)="router.navigate(['/project/list'])"></i>
+    Project Details
+  </h1>
+  <div class="infobox" *ngIf="project">
+    <form>
+      <div class="test">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>ID</label><br />
+              <mat-form-field class="custom-placeholder" appearance="outline" class="cutm-w">
+                <input matInput type="text" [value]="project.id" name="id" readonly />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Project Name</label><br />
+              <mat-form-field class="custom-placeholder" appearance="outline" class="cutm-w">
+                <input matInput type="text" [value]="project.name" name="name" readonly />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-wrapper">
+        <button mat-raised-button color="primary" (click)="router.navigate(['/project/list'])">Back to List</button>
+      </div>
+    </form>
+  </div>
+</div>

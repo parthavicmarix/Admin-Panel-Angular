@@ -68,6 +68,10 @@ export const routes: Routes = [
       {
             path: 'department',
             loadChildren: () => import('./feature/department/department.module').then(m => m.DepartmentModule)
+      },
+      {
+            path: 'project',
+            loadChildren: () => import('./feature/project/project.module').then(m => m.ProjectModule)
       }
 
 ];

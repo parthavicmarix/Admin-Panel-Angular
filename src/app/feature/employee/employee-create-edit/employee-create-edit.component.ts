@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee, EmployeeService } from '../services/employee.service';
 import { DepartmentService } from '../../department/department.service';
+import { ProjectService } from '../../project/project.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,23 +19,21 @@ import { NgSelectModule } from '@ng-select/ng-select';
 export class EmployeeCreateEditComponent implements OnInit {
   employee: Partial<Employee> = {};
   departments: any[] = [];
-  projects = [
-    { name: 'Alpha' },
-    { name: 'Beta' },
-    { name: 'Gamma' },
-    { name: 'Delta' },
-    { name: 'Omega' }
-  ];
+  projects: any[] = [];
   editMode = false;
 
   constructor(
     private route: ActivatedRoute,
     private employeeService: EmployeeService,
     private departmentService: DepartmentService,
-    public router: Router // changed from private to public
+    private projectService: ProjectService,
+    public router: Router
   ) {
     this.departmentService.getDepartments().subscribe(deps => {
       this.departments = deps;
+    });
+    this.projectService.getProjects().subscribe(projs => {
+      this.projects = projs;
     });
   }
 

@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { DepartmentService } from '../../department/department.service';
+import { ProjectService } from '../../project/project.service';
 
 @Component({
   selector: 'app-task-create',
@@ -18,9 +19,7 @@ import { DepartmentService } from '../../department/department.service';
 export class TaskCreateComponent implements OnInit {
   task: Partial<Task> = {};
   departments: any[] = [];
-  projects = [
-    { name: 'Alpha' }, { name: 'Beta' }, { name: 'Gamma' }, { name: 'Delta' }, { name: 'Omega' }
-  ];
+  projects: any[] = [];
   employees: Employee[] = [];
   filteredEmployees: Employee[] = [];
 
@@ -28,10 +27,14 @@ export class TaskCreateComponent implements OnInit {
     private taskService: TaskService,
     private employeeService: EmployeeService,
     private router: Router,
-    private departmentService: DepartmentService
+    private departmentService: DepartmentService,
+    private projectService: ProjectService
   ) {
     this.departmentService.getDepartments().subscribe(deps => {
       this.departments = deps;
+    });
+    this.projectService.getProjects().subscribe(projs => {
+      this.projects = projs;
     });
   }
 
