@@ -13,8 +13,8 @@ export interface Employee {
 @Injectable({ providedIn: 'root' })
 export class EmployeeService {
   private employees: Employee[] = [
-    { id: 1, name: 'John Doe', email: 'john@example.com', position: 'Developer', department: 'Mobile', project: 'Alpha' },
-    { id: 2, name: 'Jane Smith', email: 'jane@example.com', position: 'Designer', department: 'Design', project: 'Beta' }
+    { id: 1, name: 'John Doe', email: 'john@example.com', position: 'Developer', department: 'HR', project: 'Alpha' },
+    { id: 2, name: 'Jane Smith', email: 'jane@example.com', position: 'Designer', department: 'IT', project: 'Beta' }
   ];
 
   getEmployees(): Observable<Employee[]> {

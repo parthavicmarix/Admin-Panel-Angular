@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { DepartmentService } from '../../department/department.service';
 
 @Component({
   selector: 'app-task-create',
@@ -16,9 +17,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 })
 export class TaskCreateComponent implements OnInit {
   task: Partial<Task> = {};
-  departments = [
-    { name: 'PHP' }, { name: 'Js' }, { name: 'Dotnet' }, { name: 'Design' }, { name: 'Mobile' }
-  ];
+  departments: any[] = [];
   projects = [
     { name: 'Alpha' }, { name: 'Beta' }, { name: 'Gamma' }, { name: 'Delta' }, { name: 'Omega' }
   ];
@@ -28,8 +27,13 @@ export class TaskCreateComponent implements OnInit {
   constructor(
     private taskService: TaskService,
     private employeeService: EmployeeService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private departmentService: DepartmentService
+  ) {
+    this.departmentService.getDepartments().subscribe(deps => {
+      this.departments = deps;
+    });
+  }
 
   ngOnInit(): void {
     this.employeeService.getEmployees().subscribe(emps => {

@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { first } from 'rxjs';
+import { DepartmentService } from '../../department/department.service';
 
 @Component({
   selector: 'app-employee-create',
@@ -17,13 +18,7 @@ import { first } from 'rxjs';
 })
 export class EmployeeCreateComponent {
   employee: Partial<Employee> = {};
-  departments = [
-    { name: 'PHP' },
-    { name: 'Js' },
-    { name: 'Dotnet' },
-    { name: 'Design' },
-    { name: 'Mobile' }
-  ];
+  departments: any[] = [];
   projects = [
     { name: 'Alpha' },
     { name: 'Beta' },
@@ -32,7 +27,11 @@ export class EmployeeCreateComponent {
     { name: 'Omega' }
   ];
 
-  constructor(private employeeService: EmployeeService, private router: Router) {}
+  constructor(private employeeService: EmployeeService, private router: Router, private departmentService: DepartmentService) {
+    this.departmentService.getDepartments().subscribe(deps => {
+      this.departments = deps;
+    });
+  }
 
   save() {
     if (this.employee.name && this.employee.email && this.employee.position) {

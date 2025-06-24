@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { DepartmentService } from '../../department/department.service';
 
 @Component({
   selector: 'app-employee-edit',
@@ -16,13 +17,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 })
 export class EmployeeEditComponent implements OnInit {
   employee: Employee | undefined;
-  departments = [
-    { name: 'PHP' },
-    { name: 'Js' },
-    { name: 'Dotnet' },
-    { name: 'Design' },
-    { name: 'Mobile' }
-  ];
+  departments: any[] = [];
   projects = [
     { name: 'Alpha' },
     { name: 'Beta' },
@@ -34,8 +29,13 @@ export class EmployeeEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private employeeService: EmployeeService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private departmentService: DepartmentService
+  ) {
+    this.departmentService.getDepartments().subscribe(deps => {
+      this.departments = deps;
+    });
+  }
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
