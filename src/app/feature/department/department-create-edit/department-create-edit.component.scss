@@ -1,0 +1,15 @@
+.create-edit-page {
+  h1 {
+    margin-bottom: 16px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+  }
+  .button-wrapper {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+  }
+}

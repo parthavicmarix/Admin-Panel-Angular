@@ -1,0 +1,27 @@
+<div class="create-page">
+  <h1 class="mb-3">
+    <i class="fa-solid fa-arrow-left coursor-pointer" (click)="onCancel()"></i>
+    {{ editMode ? 'Edit Department' : 'Add Department' }}
+  </h1>
+  <div class="infobox">
+    <form [formGroup]="departmentForm" (ngSubmit)="onSubmit()">
+      <div class="test">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Name <span class="text-danger">*</span></label><br />
+              <mat-form-field class="custom-placeholder" appearance="outline" class="cutm-w">
+                <input matInput formControlName="name" placeholder="Enter Department Name" />
+                <mat-error *ngIf="departmentForm.get('name')?.hasError('required')">Name is required</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-wrapper">
+        <button mat-raised-button color="primary" type="submit">{{ editMode ? 'Update' : 'Create' }}</button>
+        <button mat-raised-button color="warn" type="button" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

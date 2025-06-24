@@ -30,6 +30,14 @@
   <span *ngIf="!collapsed">Employee</span>
 </a>
 
+<a mat-list-item 
+   routerLink="/department" 
+   routerLinkActive="active" 
+   [routerLinkActiveOptions]="{ exact: true }">
+  <i class="fas fa-building"></i>
+  <span *ngIf="!collapsed">Department</span>
+</a>
+
 <!-- repeat similarly for other routes -->
 
     <a mat-list-item routerLink="/role-list">

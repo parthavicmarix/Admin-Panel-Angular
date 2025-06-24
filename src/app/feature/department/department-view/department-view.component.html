@@ -1,0 +1,25 @@
+<div class="create-page">
+  <h1 class="mb-3">
+    <i class="fa-solid fa-arrow-left coursor-pointer" routerLink="/department"></i>
+    Department Details
+  </h1>
+  <div class="infobox">
+    <form *ngIf="department">
+      <div class="test">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-field input-fields">
+              <label>Name</label><br />
+              <mat-form-field class="custom-placeholder" appearance="outline" class="cutm-w">
+                <input matInput type="text" [value]="department?.name" name="name" readonly />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-wrapper">
+        <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+      </div>
+    </form>
+  </div>
+</div>
