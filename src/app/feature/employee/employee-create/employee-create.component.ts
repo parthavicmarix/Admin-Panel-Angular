@@ -50,3 +50,5 @@ export class EmployeeCreateComponent {
     }
   }
 }
+
+// This component is now replaced by EmployeeCreateEditComponent

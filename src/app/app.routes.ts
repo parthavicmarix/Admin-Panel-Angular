@@ -34,11 +34,11 @@ export const routes: Routes = [
       },
       {
             path: 'employee/create',
-            loadComponent: () => import('./feature/employee/employee-create/employee-create.component').then(m => m.EmployeeCreateComponent)
+            loadComponent: () => import('./feature/employee/employee-create-edit/employee-create-edit.component').then(m => m.EmployeeCreateEditComponent)
       },
       {
             path: 'employee/edit/:id',
-            loadComponent: () => import('./feature/employee/employee-edit/employee-edit.component').then(m => m.EmployeeEditComponent)
+            loadComponent: () => import('./feature/employee/employee-create-edit/employee-create-edit.component').then(m => m.EmployeeCreateEditComponent)
       },
       {
             path: 'employee/view/:id',

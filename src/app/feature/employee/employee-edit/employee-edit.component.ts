@@ -50,3 +50,5 @@ export class EmployeeEditComponent implements OnInit {
     }
   }
 }
+
+// This component is now replaced by EmployeeCreateEditComponent
