@@ -22,3 +22,35 @@
 .plus {
   margin-right: 6px;
 }
+
+.expanded-row {
+  background: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+  padding: 16px 24px;
+}
+.task-list-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.task-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.task-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+.task-title {
+  flex: 1;
+}
+.text-muted {
+  color: #888;
+}
+.task-link {
+  color: #1976d2;
+  text-decoration: underline;
+  cursor: pointer;
+}
