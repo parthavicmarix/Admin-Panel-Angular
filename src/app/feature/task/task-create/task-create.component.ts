@@ -68,3 +68,5 @@ export class TaskCreateComponent implements OnInit {
     }
   }
 }
+
+// This component is now deprecated. Use TaskCreateEditComponent instead.

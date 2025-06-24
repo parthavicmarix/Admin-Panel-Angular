@@ -1,8 +1,6 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './feature/dashboard/dashboard/dashboard.component';
 import { TaskListComponent } from './feature/task/task-list/task-list.component';
-import { TaskCreateComponent } from './feature/task/task-create/task-create.component';
-import { TaskEditComponent } from './feature/task/task-edit/task-edit.component';
 import { TaskViewComponent } from './feature/task/task-view/task-view.component';
 
 export const routes: Routes = [
@@ -53,11 +51,11 @@ export const routes: Routes = [
                   },
                   {
                         path: 'create',
-                        component: TaskCreateComponent
+                        loadComponent: () => import('./feature/task/task-create-edit/task-create-edit.component').then(m => m.TaskCreateEditComponent)
                   },
                   {
                         path: 'edit/:id',
-                        component: TaskEditComponent
+                        loadComponent: () => import('./feature/task/task-create-edit/task-create-edit.component').then(m => m.TaskCreateEditComponent)
                   },
                   {
                         path: 'view/:id',
