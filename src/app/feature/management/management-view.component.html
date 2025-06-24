@@ -1,0 +1,10 @@
+<mat-card *ngIf="management">
+  <mat-card-title>Management Details</mat-card-title>
+  <mat-card-content>
+    <div><strong>ID:</strong> {{ management?.id }}</div>
+    <div><strong>Rule:</strong> {{ management?.rule }}</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+  </mat-card-actions>
+</mat-card>

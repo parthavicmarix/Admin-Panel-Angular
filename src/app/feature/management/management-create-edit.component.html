@@ -1,0 +1,16 @@
+<div class="create-page">
+  <h1 class="mb-3">
+    <i class="fa-solid fa-arrow-left coursor-pointer" (click)="onCancel()"></i>
+    {{ isEdit ? 'Edit Management' : 'Create Management' }}
+  </h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="w-100 mb-3">
+      <mat-label>Rule</mat-label>
+      <input matInput formControlName="rule" placeholder="Enter Rule" />
+    </mat-form-field>
+    <div class="button-wrapper">
+      <button mat-raised-button color="primary" type="submit">{{ isEdit ? 'Update' : 'Save' }}</button>
+      <button mat-raised-button color="accent" type="button" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>
