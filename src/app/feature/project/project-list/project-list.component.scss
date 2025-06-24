@@ -1,0 +1,24 @@
+.list-page {
+  h1 {
+    margin-bottom: 20px;
+  }
+  .full-width-table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  button[mat-raised-button] {
+    margin-bottom: 16px;
+  }
+}
+
+.btn-blue.create-btn {
+  min-width: 160px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plus {
+  margin-right: 6px;
+}

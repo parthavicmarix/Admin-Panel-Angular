@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './feature/dashboard/dashboard/dashboard.component';
+import { TaskListComponent } from './feature/task/task-list/task-list.component';
+import { TaskViewComponent } from './feature/task/task-view/task-view.component';
 
 export const routes: Routes = [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -30,15 +32,44 @@ export const routes: Routes = [
       },
       {
             path: 'employee/create',
-            loadComponent: () => import('./feature/employee/employee-create/employee-create.component').then(m => m.EmployeeCreateComponent)
+            loadComponent: () => import('./feature/employee/employee-create-edit/employee-create-edit.component').then(m => m.EmployeeCreateEditComponent)
       },
       {
             path: 'employee/edit/:id',
-            loadComponent: () => import('./feature/employee/employee-edit/employee-edit.component').then(m => m.EmployeeEditComponent)
+            loadComponent: () => import('./feature/employee/employee-create-edit/employee-create-edit.component').then(m => m.EmployeeCreateEditComponent)
       },
       {
             path: 'employee/view/:id',
             loadComponent: () => import('./feature/employee/employee-view/employee-view.component').then(m => m.EmployeeViewComponent)
       },
+      {
+            path: 'tasks',
+            children: [
+                  {
+                        path: '',
+                        component: TaskListComponent
+                  },
+                  {
+                        path: 'create',
+                        loadComponent: () => import('./feature/task/task-create-edit/task-create-edit.component').then(m => m.TaskCreateEditComponent)
+                  },
+                  {
+                        path: 'edit/:id',
+                        loadComponent: () => import('./feature/task/task-create-edit/task-create-edit.component').then(m => m.TaskCreateEditComponent)
+                  },
+                  {
+                        path: 'view/:id',
+                        component: TaskViewComponent
+                  }
+            ]
+      },
+      {
+            path: 'department',
+            loadChildren: () => import('./feature/department/department.module').then(m => m.DepartmentModule)
+      },
+      {
+            path: 'project',
+            loadChildren: () => import('./feature/project/project.module').then(m => m.ProjectModule)
+      }
 
 ];

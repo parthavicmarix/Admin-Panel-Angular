@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <h2>Task Details</h2>
+  <div *ngIf="task">
+    <dl class="row">
+      <dt class="col-sm-3">Title</dt>
+      <dd class="col-sm-9">{{ task.title }}</dd>
+      <dt class="col-sm-3">Description</dt>
+      <dd class="col-sm-9">{{ task.description }}</dd>
+      <dt class="col-sm-3">Department</dt>
+      <dd class="col-sm-9">{{ task.department }}</dd>
+      <dt class="col-sm-3">Project</dt>
+      <dd class="col-sm-9">{{ task.project }}</dd>
+      <dt class="col-sm-3">Assigned Employee</dt>
+      <dd class="col-sm-9">{{ getEmployeeName(task.assignedEmployeeId) }}</dd>
+    </dl>
+    <a routerLink="/tasks/edit/{{task.id}}" class="btn btn-warning mr-2">Edit</a>
+    <a routerLink="/tasks" class="btn btn-secondary">Back to List</a>
+  </div>
+  <div *ngIf="!task">
+    <p>Task not found.</p>
+    <a routerLink="/tasks" class="btn btn-secondary">Back to List</a>
+  </div>
+</div>

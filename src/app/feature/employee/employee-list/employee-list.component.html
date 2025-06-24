@@ -29,6 +29,7 @@
             <th>Position</th>
             <th>Department</th>
             <th>Project</th>
+            <th>Tasks</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -40,6 +41,18 @@
             <td>{{ emp.position }}</td>
             <td>{{ emp.department }}</td>
             <td>{{ emp.project }}</td>
+            <td>
+              <ng-container *ngIf="getTasksForEmployee(emp.id).length; else noTasks">
+                <ul class="mb-0 pl-3">
+                  <li *ngFor="let task of getTasksForEmployee(emp.id)">
+                    <a [routerLink]="['/tasks/view', task.id]">{{ task.title }}</a>
+                  </li>
+                </ul>
+              </ng-container>
+              <ng-template #noTasks>
+                <span class="text-muted">No tasks</span>
+              </ng-template>
+            </td>
             <td>
               <a class="icon-color" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Actions" (click)="setSelectedEmployee(emp)">
                 <mat-icon>more_vert</mat-icon>

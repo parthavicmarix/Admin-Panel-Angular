@@ -30,6 +30,14 @@
   <span *ngIf="!collapsed">Employee</span>
 </a>
 
+<a mat-list-item 
+   routerLink="/department" 
+   routerLinkActive="active" 
+   [routerLinkActiveOptions]="{ exact: true }">
+  <i class="fas fa-building"></i>
+  <span *ngIf="!collapsed">Department</span>
+</a>
+
 <!-- repeat similarly for other routes -->
 
     <a mat-list-item routerLink="/role-list">
@@ -44,5 +52,16 @@
       <i class="fas fa-envelope"></i>
       <span *ngIf="!collapsed">Email</span>
     </a>
+    <a mat-list-item routerLink="/tasks">
+      <i class="fas fa-tasks"></i>
+      <span *ngIf="!collapsed">Tasks</span>
+    </a>
+    <a mat-list-item 
+   routerLink="/project/list" 
+   routerLinkActive="active" 
+   [routerLinkActiveOptions]="{ exact: true }">
+  <i class="fas fa-tasks"></i>
+  <span *ngIf="!collapsed">Project</span>
+</a>
   </mat-nav-list>
 </div>
