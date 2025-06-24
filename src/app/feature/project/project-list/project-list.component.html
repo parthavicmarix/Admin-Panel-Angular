@@ -13,21 +13,68 @@
       <table class="table table-hover m-0 b-1 nowrap">
         <thead class="thead-light">
           <tr>
+            <th></th>
             <th>Sr No.</th>
             <th>Name</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let project of projects; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td>{{ project.name }}</td>
-            <td>
-              <a class="icon-color" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Actions" (click)="setSelectedProject(project)">
-                <mat-icon>more_vert</mat-icon>
-              </a>
-            </td>
-          </tr>
+          <ng-container *ngFor="let project of projects; let i = index">
+            <tr>
+              <td>
+                <button mat-icon-button (click)="toggleExpand(project)">
+                  <mat-icon>{{ expandedProjectId === project.id ? 'expand_less' : 'expand_more' }}</mat-icon>
+                </button>
+              </td>
+              <td>{{ i + 1 }}</td>
+              <td>{{ project.name }}</td>
+              <td>
+                <a class="icon-color" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Actions" (click)="setSelectedProject(project)">
+                  <mat-icon>more_vert</mat-icon>
+                </a>
+              </td>
+            </tr>
+            <tr *ngIf="expandedProjectId === project.id">
+              <td colspan="4" class="expanded-row">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <div *ngIf="projectTasks[project.name]?.length">
+                    <div class="task-list-title">Tasks for {{ project.name }}:</div>
+                  </div>
+                  <button mat-raised-button color="primary" (click)="addTaskForProject(project)">
+                    <mat-icon>add</mat-icon> Add Task
+                  </button>
+                </div>
+                <ng-container *ngIf="projectTasks[project.name]?.length; else noTasksTable">
+                  <table class="table table-sm table-bordered mb-0">
+                    <thead>
+                      <tr>
+                        <th>Task Name</th>
+                        <th>Department</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let task of projectTasks[project.name]">
+                        <td>
+                          <a class="task-link" (click)="viewTask(task)">{{ task.title }}</a>
+                        </td>
+                        <td>{{ task.department }}</td>
+                        <td>
+                          <button mat-icon-button color="primary" (click)="editTask(task)"><mat-icon>edit</mat-icon></button>
+                          <button mat-icon-button color="accent" (click)="viewTask(task)"><mat-icon>visibility</mat-icon></button>
+                          <button mat-icon-button color="warn" (click)="deleteTask(task, project.name)"><mat-icon>delete</mat-icon></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </ng-container>
+                <ng-template #noTasksTable>
+                  <span class="text-muted">No tasks for this project.</span>
+                </ng-template>
+              </td>
+            </tr>
+          </ng-container>
         </tbody>
       </table>
       <mat-menu #menu="matMenu">

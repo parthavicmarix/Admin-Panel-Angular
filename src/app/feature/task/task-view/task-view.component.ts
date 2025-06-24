@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService, Task } from '../services/task.service';
 import { EmployeeService, Employee } from '../../employee/services/employee.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -15,15 +15,22 @@ import { RouterModule } from '@angular/router';
 export class TaskViewComponent implements OnInit {
   task: Task | undefined;
   employees: Employee[] = [];
+  sourceModule: 'task' | 'project' = 'task';
 
   constructor(
     private taskService: TaskService,
     private employeeService: EmployeeService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.route.queryParams.subscribe(params => {
+      if (params['source'] === 'project') {
+        this.sourceModule = 'project';
+      }
+    });
     this.taskService.getTask(id).subscribe(task => this.task = task);
     this.employeeService.getEmployees().subscribe(emps => this.employees = emps);
   }
@@ -31,5 +38,13 @@ export class TaskViewComponent implements OnInit {
   getEmployeeName(id: number): string {
     const emp = this.employees.find(e => e.id === id);
     return emp ? emp.name : '-';
+  }
+
+  goBack() {
+    if (this.sourceModule === 'project') {
+      this.router.navigate(['/project/list']);
+    } else {
+      this.router.navigate(['/tasks']);
+    }
   }
 }

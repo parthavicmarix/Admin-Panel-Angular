@@ -23,6 +23,7 @@ export class TaskCreateEditComponent implements OnInit {
   employees: Employee[] = [];
   filteredEmployees: Employee[] = [];
   editMode = false;
+  sourceModule: 'task' | 'project' = 'task';
 
   constructor(
     private taskService: TaskService,
@@ -42,6 +43,14 @@ export class TaskCreateEditComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
+    this.route.queryParams.subscribe(params => {
+      if (!id && params['project']) {
+        this.task.project = params['project'];
+        this.sourceModule = params['source'] === 'project' ? 'project' : 'task';
+      } else if (params['source'] === 'project') {
+        this.sourceModule = 'project';
+      }
+    });
     if (id) {
       this.editMode = true;
       this.employeeService.getEmployees().subscribe(emps => {
@@ -84,13 +93,14 @@ export class TaskCreateEditComponent implements OnInit {
   }
 
   onSubmit() {
+    const navigateTo = this.sourceModule === 'project' ? '/project/list' : '/tasks';
     if (this.editMode) {
       this.taskService.updateTask(this.task as Task).subscribe(() => {
-        this.router.navigate(['/tasks']);
+        this.router.navigate([navigateTo]);
       });
     } else {
       this.taskService.addTask(this.task as Task).subscribe(() => {
-        this.router.navigate(['/tasks']);
+        this.router.navigate([navigateTo]);
       });
     }
   }

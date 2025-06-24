@@ -44,4 +44,8 @@ export class TaskService {
   getTasksByEmployee(employeeId: number): Observable<Task[]> {
     return of(this.tasks.filter(t => t.assignedEmployeeId === employeeId));
   }
+
+  getTasksByProject(projectName: string): Observable<Task[]> {
+    return of(this.tasks.filter(t => t.project === projectName));
+  }
 }
