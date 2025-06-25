@@ -1,0 +1,10 @@
+<mat-card *ngIf="account">
+  <mat-card-title>Account Details</mat-card-title>
+  <mat-card-content>
+    <div><strong>ID:</strong> {{ account?.id }}</div>
+    <div><strong>Name:</strong> {{ account?.name }}</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+  </mat-card-actions>
+</mat-card>

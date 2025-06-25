@@ -1,0 +1,30 @@
+<div class="create-page">
+  <h1 class="mb-3">
+    <i class="fa-solid fa-arrow-left coursor-pointer" (click)="onCancel()"></i>
+    {{ isEdit ? 'Edit Account' : 'Create Account' }}
+  </h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="w-100 mb-3">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter Account Name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100 mb-3">
+      <mat-label>Type</mat-label>
+      <input matInput formControlName="type" placeholder="Enter Account Type" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100 mb-3">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" formControlName="amount" placeholder="Enter Amount" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100 mb-3">
+      <mat-label>Department</mat-label>
+      <mat-select formControlName="department">
+        <mat-option *ngFor="let dep of departments" [value]="dep.name">{{ dep.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="button-wrapper">
+      <button mat-raised-button color="primary" type="submit">{{ isEdit ? 'Update' : 'Save' }}</button>
+      <button mat-raised-button color="accent" type="button" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

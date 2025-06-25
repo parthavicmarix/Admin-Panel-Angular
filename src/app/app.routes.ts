@@ -70,6 +70,10 @@ export const routes: Routes = [
       {
             path: 'project',
             loadChildren: () => import('./feature/project/project.module').then(m => m.ProjectModule)
+      },
+      {
+            path: 'account',
+            loadChildren: () => import('./feature/account/account.module').then(m => m.AccountModule)
       }
 
 ];

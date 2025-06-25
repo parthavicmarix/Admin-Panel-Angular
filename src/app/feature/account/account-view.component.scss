@@ -1,0 +1,18 @@
+mat-card {
+  margin: 32px auto;
+  max-width: 400px;
+  .mat-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  .mat-card-content {
+    margin-bottom: 16px;
+    div {
+      margin-bottom: 8px;
+    }
+  }
+  .mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
